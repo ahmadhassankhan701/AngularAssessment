@@ -1,0 +1,21 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "role": "Admin",
+      "status": "Active"
+    },
+    {
+      "id": "a344",
+      "name": "test",
+      "email": "test@gmail.com"
+    },
+    {
+      "id": "06ec",
+      "name": "Jane Doe",
+      "email": "janedoe@gmail.com"
+    }
+  ]
+}

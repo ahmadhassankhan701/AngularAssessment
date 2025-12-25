@@ -1,0 +1,52 @@
+<div class="flex justify-content-center mt-6">
+  <p-card header="Create User" class="w-full md:w-6">
+    <form [formGroup]="userForm" (ngSubmit)="submit()" class="p-fluid">
+      <!-- Name -->
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" type="text" pInputText formControlName="name" />
+        <small
+          class="p-error"
+          *ngIf="userForm.get('name')?.touched && userForm.get('name')?.invalid"
+        >
+          Name is required (min 3 characters)
+        </small>
+      </div>
+
+      <!-- Email -->
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" type="email" pInputText formControlName="email" />
+        <small
+          class="p-error"
+          *ngIf="userForm.get('email')?.touched && userForm.get('email')?.invalid"
+        >
+          Enter a valid email
+        </small>
+      </div>
+
+      <!-- Role -->
+      <!-- <div class="field">
+        <label for="role">Role</label>
+        <p-dropdown
+          inputId="role"
+          [options]="roles"
+          formControlName="role"
+          placeholder="Select Role"
+        >
+        </p-dropdown>
+        <small
+          class="p-error"
+          *ngIf="userForm.get('role')?.touched && userForm.get('role')?.invalid"
+        >
+          Role is required
+        </small>
+      </div> -->
+
+      <!-- Submit -->
+      <div class="flex justify-content-end mt-4">
+        <button pButton type="submit" label="Create User"></button>
+      </div>
+    </form>
+  </p-card>
+</div>

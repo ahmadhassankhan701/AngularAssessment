@@ -1,0 +1,13 @@
+<p-menubar>
+  <ng-template pTemplate="start">
+    <strong>Assessment Dashboard</strong>
+  </ng-template>
+
+  <ng-template pTemplate="end">
+    <button pButton label="New User" icon="pi pi-user-plus" routerLink="/users/new"></button>
+  </ng-template>
+</p-menubar>
+
+<div class="dashboard-content">
+  <router-outlet></router-outlet>
+</div>
