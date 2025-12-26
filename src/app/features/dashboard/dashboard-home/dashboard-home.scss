@@ -1,0 +1,13 @@
+.table-separator {
+  height: 1px;
+  width: 100%;
+  margin: 3rem 0;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.2) 33%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  background-position: bottom;
+  background-size: 6px 1px; // First number controls the spacing between dots
+  background-repeat: repeat-x;
+}

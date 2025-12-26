@@ -1,0 +1,29 @@
+.stat-card {
+  background-color: #1f1d2b; // Deep dark blue/gray from image
+  min-height: 200px;
+  min-width: 136px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    border-color: rgba(0, 229, 255, 0.2);
+  }
+
+  // Override PrimeNG Knob default background if needed
+  ::ng-deep .p-knob {
+    svg {
+      filter: drop-shadow(0 0 5px rgba(0, 229, 255, 0.2));
+    }
+  }
+}
+.simple {
+  background-color: rgb(31, 29, 43, 0.3) !important;
+}
+// Ensure the grid fits tightly
+.grid {
+  margin-right: 0;
+  margin-left: 0;
+  margin-top: 0;
+}

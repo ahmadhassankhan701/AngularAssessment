@@ -1,1 +1,123 @@
-<p>dashboard-table works!</p>
+<div class="table-container p-3">
+  <div class="flex align-items-center mb-3 text-gray-400">
+    <i class="pi pi-history mr-2"></i>
+    <div class="flex flex-column">
+      <span class="font-bold fs-14 text-sm text-white">Afternoon Shift</span>
+      <span class="text-xs">12:00 PM - 08:00 PM</span>
+    </div>
+  </div>
+
+  <p-table
+    [value]="vehicles"
+    [responsiveLayout]="'scroll'"
+    styleClass="p-datatable-custom"
+    [rows]="10"
+    [resizableColumns]="true"
+    columnResizeMode="expand"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>
+          <div class="flex align-items-center">
+            <i class="pi pi-bars mr-2 text-xs opacity-50"></i>
+            Vehicle <i class="pi pi-arrow-down ml-2 text-xs"></i>
+          </div>
+        </th>
+        <th>
+          <div class="flex align-items-center">
+            <i class="pi pi-bars mr-2 text-xs opacity-50"></i>
+            Plate Num. <i class="pi pi-arrow-down ml-2 text-xs"></i>
+          </div>
+        </th>
+        <th>
+          <div class="flex align-items-center">
+            <i class="pi pi-bars mr-2 text-xs opacity-50"></i>
+            Odometer
+          </div>
+        </th>
+        <th>
+          <div class="flex align-items-center">
+            <i class="pi pi-bars mr-2 text-xs opacity-50"></i>
+            GPS
+          </div>
+        </th>
+        <th>
+          <div class="flex align-items-center">
+            <i class="pi pi-bars mr-2 text-xs opacity-50"></i>
+            Device
+          </div>
+        </th>
+        <th>
+          <div class="flex align-items-center">
+            <i class="pi pi-bars mr-2 text-xs opacity-50"></i>
+            SIM
+          </div>
+        </th>
+        <th>
+          <div class="flex align-items-center">
+            <i class="pi pi-bars mr-2 text-xs opacity-50"></i>
+            Fleet
+          </div>
+        </th>
+        <th>
+          <div class="flex align-items-center">
+            <i class="pi pi-bars mr-2 text-xs opacity-50"></i>
+            Status
+          </div>
+        </th>
+        <th style="width: 3rem">
+          <div class="column-toggle-btn">
+            <i class="pi pi-sliders-h"></i>
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-vehicle>
+      <tr>
+        <td>
+          <div class="flex align-items-center gap-2">
+            <span class="type-badge">SUV</span>
+            <a href="#" class="vehicle-link text-sm">{{ vehicle.name }}</a>
+          </div>
+        </td>
+        <td>{{ vehicle.plate }}</td>
+        <td>{{ vehicle.odometer }} KM</td>
+        <td>
+          <div class="flex flex-column">
+            <span class="text-sm">{{ vehicle.gpsDate }}</span>
+            <span class="text-xs opacity-50">{{ vehicle.gpsTime }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="flex align-items-center gap-2">
+            <i class="pi pi-bolt text-green-500"></i>
+            <div class="flex flex-column">
+              <span class="text-xs">Teltonika</span>
+              <span class="text-xs font-bold tracking-widest">{{ vehicle.deviceId }}</span>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="flex flex-column">
+            <span class="text-xs">Allowance</span>
+            <span class="text-xs font-bold">{{ vehicle.sim }}</span>
+          </div>
+        </td>
+        <td>{{ vehicle.fleet }}</td>
+        <td>
+          <p-select
+            [options]="statusOptions"
+            [(ngModel)]="vehicle.status"
+            optionLabel="name"
+            optionValue="code"
+            placeholder="Select Status"
+            [appendTo]="'body'"
+            styleClass="status-dropdown w-full"
+          />
+        </td>
+        <td></td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

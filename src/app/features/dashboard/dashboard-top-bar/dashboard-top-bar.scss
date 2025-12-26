@@ -1,0 +1,96 @@
+::ng-deep .mobile-drawer-full {
+  background-color: #0d1117 !important; // Deep dark background
+  border: none !important;
+
+  .p-drawer-header {
+    padding: 1.5rem;
+    .p-drawer-close-button {
+      color: #8b949e;
+      &:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+    }
+  }
+}
+
+// Active State Icon Box
+.icon-container-active {
+  background-color: #00e5ff;
+  color: #0d1117;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+// Muted State Icon Box
+.icon-container-muted {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #6e7681;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.icon-container-muted-sm {
+  background-color: rgba(255, 255, 255, 0.03);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+// The floating action button style for "Users"
+.plus-action-btn {
+  background-color: #00e5ff;
+  color: #0d1117;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  i {
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+}
+
+.mobile-header {
+  background-color: #0d1117; // Match your dark sidebar theme
+  height: 70px;
+
+  // Specific rounding for the very top of the app as seen in image
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  .dashboard-badge {
+    .cyan-icon-box {
+      background-color: #00e5ff;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+
+      i {
+        font-size: 1.1rem;
+      }
+    }
+
+    span {
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .user-avatar-border {
+    border: 2px solid #464353;
+    width: 40px;
+    height: 40px;
+  }
+}

@@ -1,1 +1,41 @@
-<p>dashboard-charts works!</p>
+<div class="grid p-3">
+  @for (card of progressCards; track card.label) {
+  <div class="col-12 sm:col-6 md:col-4 lg:col">
+    <div
+      class="stat-card flex flex-column align-items-center justify-content-center p-4 border-round-xl"
+    >
+      <div class="relative flex align-items-center justify-content-center mb-3">
+        <p-knob
+          [(ngModel)]="card.value"
+          valueTemplate="{value}%"
+          [size]="100"
+          [readonly]="true"
+          valueColor="#00e5ff"
+          rangeColor="#1e1e2d"
+          [strokeWidth]="5"
+        >
+        </p-knob>
+      </div>
+      <div class="text-white font-bold text-xl mb-1">
+        {{ card.current }}<span class="text-gray-500 text-sm">/{{ card.total }}</span>
+      </div>
+      <div class="text-gray-500 text-center text-sm uppercase font-semibold line-height-2">
+        {{ card.label }}
+      </div>
+    </div>
+  </div>
+  } @for (item of simpleStats; track item.label) {
+  <div class="col-12 sm:col-4 md:col-3 lg:col">
+    <div
+      class="simple stat-card flex flex-column align-items-center justify-content-center p-4 border-round-xl h-full"
+    >
+      <div class="text-white font-bold text-3xl mb-3">
+        {{ item.count }}
+      </div>
+      <div class="text-gray-500 text-center text-sm uppercase font-semibold line-height-2">
+        {{ item.label }}
+      </div>
+    </div>
+  </div>
+  }
+</div>

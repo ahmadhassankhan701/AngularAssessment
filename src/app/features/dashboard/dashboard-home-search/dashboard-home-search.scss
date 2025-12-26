@@ -1,0 +1,45 @@
+$bg-dark: #10141a;
+$bg-active: #1f1d2b;
+$cyan: #00c5d6;
+$text-gray: #8b949e;
+$text-white: #ffffff;
+
+.action-bar {
+  // This ensures the icon field wrapper expands correctly
+  ::ng-deep .p-icon-field {
+    display: block;
+    width: 100%;
+  }
+
+  .search-input {
+    background-color: #1f1d2b !important; // Darker inner shade
+    border: 1px solid #1f1d2b !important;
+    color: #cecbde;
+    border-radius: 12px;
+    height: 45px; // Matches button height
+    transition: all 0.2s;
+
+    &:focus {
+      border-color: $cyan !important;
+      box-shadow: 0 0 0 2px rgba(0, 229, 255, 0.1) !important;
+    }
+  }
+
+  ::ng-deep .action-btn {
+    height: 45px;
+    background: #252836 !important;
+    border: 1px solid #252836 !important;
+    border-radius: 12px !important;
+    color: #cecbde !important;
+    // box-shadow: rgba(2, 0, 23, 0.6) 0px 10px 5px -3px;
+    box-shadow: 0 0.5px 0.5px 0.5px rgba(2, 0, 23, 0.6);
+
+    // Prevents text from wrapping if the search bar grows too much
+    white-space: nowrap;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.05) !important;
+      border-color: $cyan !important;
+    }
+  }
+}

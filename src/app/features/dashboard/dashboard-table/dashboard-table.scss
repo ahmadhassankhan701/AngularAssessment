@@ -1,0 +1,103 @@
+.p-datatable-custom {
+  ::ng-deep {
+    .p-datatable-thead > tr > th {
+      background: rgba(31, 29, 43, 1);
+      color: #cecbde;
+      border: none;
+      border-bottom: 2px solid rgba(70, 67, 83, 1) !important;
+      font-size: 0.85rem;
+      padding: 0.5rem;
+      text-transform: none;
+      white-space: nowrap;
+    }
+
+    .p-datatable-tbody > tr {
+      background: transparent;
+      color: #cecbde;
+      transition: background 0.2s;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.03) !important;
+      }
+
+      > td {
+        border: none;
+        border-bottom: 2px solid rgba(70, 67, 83, 1);
+        padding: 1rem;
+      }
+    }
+  }
+}
+
+.type-badge {
+  border: 1px solid #464353;
+  color: #8b949e;
+  font-size: 0.65rem;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+
+.vehicle-link {
+  color: #cecbde;
+  text-decoration: underline;
+  font-weight: 500;
+  &:hover {
+    color: red;
+  }
+}
+
+.column-toggle-btn {
+  background: #252836;
+  border: 1px solid #464353;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cecbde;
+}
+
+::ng-deep {
+  .status-dropdown {
+    background: transparent !important;
+    border: 1px solid #cecbde !important;
+    border-radius: 8px;
+    transition: border-color 0.2s;
+
+    &:not(.p-disabled).p-focus {
+      border-color: #00e5ff !important; // Your Cyan color
+      box-shadow: none;
+    }
+
+    .p-select-label {
+      color: #cecbde !important;
+      font-size: 0.8rem;
+      padding: 5px 10px;
+    }
+
+    .p-select-trigger {
+      color: #cecbde;
+    }
+  }
+
+  // Styling the overlay (since we appended to body)
+  .p-select-overlay {
+    background-color: #1e1e2d !important;
+    border: 1px solid #464353 !important;
+
+    .p-select-option {
+      color: #cecbde !important;
+      font-size: 0.8rem;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.05) !important;
+      }
+
+      &.p-highlight {
+        background: rgba(0, 229, 255, 0.1) !important;
+        color: #00e5ff !important;
+      }
+    }
+  }
+}

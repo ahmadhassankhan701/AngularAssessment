@@ -9,6 +9,7 @@ import { PanelMenuModule } from 'primeng/panelmenu';
 import { MenuItem } from 'primeng/api';
 import { TooltipModule } from 'primeng/tooltip';
 import { TieredMenuModule } from 'primeng/tieredmenu';
+import { DashboardTopBar } from '../dashboard-top-bar/dashboard-top-bar';
 
 @Component({
   selector: 'app-dashboard-layout',
@@ -22,6 +23,7 @@ import { TieredMenuModule } from 'primeng/tieredmenu';
     PanelMenuModule,
     TooltipModule,
     TieredMenuModule,
+    DashboardTopBar,
   ],
   templateUrl: './dashboard-layout.html',
   styleUrl: './dashboard-layout.scss',
