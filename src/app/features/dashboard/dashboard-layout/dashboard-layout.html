@@ -1,13 +1,136 @@
-<p-menubar>
-  <ng-template pTemplate="start">
-    <strong>Assessment Dashboard</strong>
-  </ng-template>
+<div class="layout">
+  @if (!isDrawerExpanded) {
+  <aside class="sidebar-short">
+    <div class="sidebar-header">
+      <img src="/short-logo.png" alt="Ideal Solutions" class="logo" />
+      <div class="menu-toggle">
+        <i class="pi pi-list" (click)="isDrawerExpanded = true"></i>
+      </div>
+    </div>
 
-  <ng-template pTemplate="end">
-    <button pButton label="New User" icon="pi pi-user-plus" routerLink="/users/new"></button>
-  </ng-template>
-</p-menubar>
+    <div class="sidebar-content">
+      <ul class="nav-list">
+        <li class="nav-item active">
+          <div class="nav-link">
+            <i class="pi pi-th-large icon-bg"></i>
+            <span>Dashboard</span>
+          </div>
+        </li>
 
-<div class="dashboard-content">
-  <router-outlet></router-outlet>
+        <li class="nav-item">
+          <div class="nav-link">
+            <i class="pi pi-file-edit icon-outline"></i>
+            <span>Report</span>
+          </div>
+        </li>
+        <li class="nav-item has-flyout">
+          <div class="nav-link main-link">
+            <i class="pi pi-cog icon-outline"></i>
+            <span>Organization</span>
+          </div>
+
+          <div class="sub-menu-flyout">
+            <div class="flyout-header active-glow">
+              <span class="title">Assets</span>
+            </div>
+
+            <div class="flyout-content">
+              <ul class="sub-list">
+                <li class="sub-item">
+                  <div class="sub-link">
+                    <i class="pi pi-file-edit"></i>
+                    <span>Invoices</span>
+                  </div>
+                </li>
+
+                <li class="sub-item">
+                  <div class="sub-link">
+                    <i class="pi pi-users"></i>
+                    <span>Users</span>
+                    <div class="plus-btn">
+                      <i class="pi pi-plus" style="color: #ffffff"></i>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-footer">
+      <img src="/profile.png" alt="profile" width="35" height="35" style="border-radius: 10px" />
+    </div>
+  </aside>
+  } @if (isDrawerExpanded) {
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <img src="/white-logo.png" alt="Ideal Solutions" class="logo" />
+      <div class="menu-toggle">
+        <i class="pi pi-list" (click)="isDrawerExpanded = false"></i>
+      </div>
+    </div>
+
+    <div class="sidebar-content">
+      <ul class="nav-list">
+        <li class="nav-item active">
+          <div class="nav-link">
+            <i class="pi pi-th-large icon-bg"></i>
+            <span>Dashboard</span>
+          </div>
+        </li>
+
+        <li class="nav-item">
+          <div class="nav-link">
+            <i class="pi pi-file-edit icon-outline"></i>
+            <span>Report</span>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="nav-link dropdown-header">
+            <i class="pi pi-cog icon-outline"></i>
+            <span>Organization</span>
+            <i
+              class="ml-auto pi"
+              [class.pi-chevron-up]="isOrgExpanded"
+              [class.pi-chevron-down]="!isOrgExpanded"
+              (click)="isOrgExpanded = !isOrgExpanded"
+            ></i>
+          </div>
+          @if (isOrgExpanded) {
+          <ul class="sub-menu">
+            <li class="sub-item">
+              <div class="nav-link">
+                <i class="pi pi-users icon-outline"></i>
+                <span>Users</span>
+                <div class="plus-container">
+                  <i class="pi pi-plus" style="color: #ffffff"></i>
+                </div>
+              </div>
+            </li>
+          </ul>
+          }
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-footer">
+      <img src="/profile.png" alt="profile" width="35" height="35" style="border-radius: 10px" />
+      <div class="user-info">
+        <span class="user-name">John Doe</span>
+        <span class="user-role">Admin</span>
+      </div>
+    </div>
+  </aside>
+  }
+  <div class="main">
+    <header class="topbar">
+      <!-- page title, actions -->
+    </header>
+
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
 </div>
