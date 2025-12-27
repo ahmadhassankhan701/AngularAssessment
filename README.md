@@ -2,12 +2,20 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
 
-## Development server
+## Development server and JSON server
 
-To start a local development server, run:
+To install source code and start a local development server, run:
 
 ```bash
+git clone https://github.com/ahmadhassankhan701/AngularAssessment.git
+npm install
 ng serve
+```
+
+To connect with mock backend i.e json server, run:
+
+```bash
+npx json-server --watch db.json --port 3000
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
@@ -18,12 +26,6 @@ Angular CLI includes powerful code scaffolding tools. To generate a new componen
 
 ```bash
 ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
 ```
 
 ## Building
