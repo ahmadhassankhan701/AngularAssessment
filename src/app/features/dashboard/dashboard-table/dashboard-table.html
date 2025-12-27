@@ -8,8 +8,7 @@
   </div>
 
   <p-table
-    [value]="vehicles"
-    [responsiveLayout]="'scroll'"
+    [value]="(vehicles$ | async) || []"
     styleClass="p-datatable-custom"
     [rows]="10"
     [resizableColumns]="true"
