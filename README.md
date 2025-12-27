@@ -2,6 +2,14 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
 
+## Demo and Screenshots
+
+|                Short Menu                 |                Full Menu                |             Demo              |
+| :---------------------------------------: | :-------------------------------------: | :---------------------------: |
+| ![Short Menu](screenshots/short-menu.png) | ![Full Menu](screenshots/full-menu.png) | ![Demo](screenshots/demo.mp4) |
+
+#
+
 ## Development server and JSON server
 
 To install source code and start a local development server, run:
