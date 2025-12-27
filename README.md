@@ -4,11 +4,9 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ## Demo and Screenshots
 
-|                Short Menu                 |                Full Menu                |             Demo              |
-| :---------------------------------------: | :-------------------------------------: | :---------------------------: |
-| ![Short Menu](screenshots/short-menu.png) | ![Full Menu](screenshots/full-menu.png) | ![Demo](screenshots/demo.mp4) |
-
-#
+|                Short Menu                 |                Full Menu                |               Top Bar               | Top Drawer                                |
+| :---------------------------------------: | :-------------------------------------: | :---------------------------------: | ----------------------------------------- |
+| ![Short Menu](screenshots/short-menu.png) | ![Full Menu](screenshots/full-menu.png) | ![Top Bar](screenshots/top-bar.png) | ![Top Drawer](screenshots/top-drawer.png) |
 
 ## Development server and JSON server
 
