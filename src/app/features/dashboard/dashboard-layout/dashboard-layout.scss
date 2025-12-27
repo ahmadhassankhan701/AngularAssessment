@@ -212,7 +212,6 @@ $text-white: #ffffff;
 
       .has-flyout {
         position: relative;
-
         // Hide menu by default
         .sub-menu-flyout {
           visibility: hidden;
@@ -255,6 +254,25 @@ $text-white: #ffffff;
         }
         .nav-link span {
           display: none;
+        }
+        .nav-link .icon-outline {
+          background: none;
+        }
+      }
+      .nav-item:hover {
+        background: linear-gradient(
+          to right,
+          rgba(0, 229, 255, 0.3) 60%,
+          #252836 100%,
+          transparent 60%
+        );
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        .nav-link i {
+          color: $cyan;
+        }
+        .nav-link span {
+          color: $cyan !important;
         }
         .nav-link .icon-outline {
           background: none;
@@ -379,6 +397,9 @@ $text-white: #ffffff;
 @media (max-width: 768px) {
   .layout {
     grid-template-columns: 0 1fr; // Hide sidebar completely on mobile
+    .nav-item {
+      visibility: hidden;
+    }
     &.layout-expanded {
       grid-template-columns: 0 1fr; // Hide sidebar completely on mobile
     }

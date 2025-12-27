@@ -1,21 +1,30 @@
 {
   "users": [
     {
-      "id": "1",
-      "name": "John Doe",
-      "email": "john@example.com",
-      "role": "Admin",
-      "status": "Active"
+      "id": "f907",
+      "firstName": "John",
+      "middleName": "",
+      "lastName": "Doe",
+      "email": "doe@gmail.com",
+      "phone": "+97456788765",
+      "rfidEnabled": false,
+      "rfidValue": "",
+      "profileImage": {},
+      "role": "admin",
+      "department": "fire"
     },
     {
-      "id": "a344",
-      "name": "test",
-      "email": "test@gmail.com"
-    },
-    {
-      "id": "06ec",
-      "name": "Jane Doe",
-      "email": "janedoe@gmail.com"
+      "id": "0d9d",
+      "firstName": "Ahmed",
+      "middleName": "Jasim",
+      "lastName": "Ali",
+      "email": "Ahmed.Ali@company.com",
+      "phone": "+97487655678",
+      "rfidEnabled": true,
+      "rfidValue": "123456",
+      "profileImage": {},
+      "role": "admin",
+      "department": "fire"
     }
   ]
 }

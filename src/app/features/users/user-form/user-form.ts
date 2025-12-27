@@ -1,6 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  ReactiveFormsModule,
+  FormsModule,
+} from '@angular/forms';
 import { UserService } from '../../../core/services/user';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
@@ -9,6 +15,12 @@ import { InputTextModule } from 'primeng/inputtext';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+
+import { OnInit } from '@angular/core';
+import { SelectModule } from 'primeng/select';
+import { ToggleSwitchModule } from 'primeng/toggleswitch';
+import { IconFieldModule } from 'primeng/iconfield';
+import { InputIconModule } from 'primeng/inputicon';
 
 @Component({
   selector: 'app-user-form',
@@ -20,38 +32,62 @@ import { CardModule } from 'primeng/card';
     AutoCompleteModule,
     ButtonModule,
     CardModule,
+    SelectModule,
+    ToggleSwitchModule,
+    IconFieldModule,
+    InputIconModule,
+    FormsModule,
   ],
   templateUrl: './user-form.html',
   styleUrl: './user-form.scss',
 })
-export class UserForm {
-  userForm: FormGroup;
-
-  roles = [
-    { label: 'Admin', value: 'Admin' },
-    { label: 'User', value: 'User' },
-    { label: 'Manager', value: 'Manager' },
-  ];
+export class UserForm implements OnInit {
+  userForm!: FormGroup;
+  roles: any[] = [];
+  departments: any[] = [];
+  rfidEnabled: boolean = false;
+  // Default placeholder image path
+  imagePreview: string = '/profile.png';
 
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router,
     private messageService: MessageService
-  ) {
+  ) {}
+  ngOnInit() {
+    this.roles = [
+      { name: 'Super Admin', code: 'admin' },
+      { name: 'User', code: 'user' },
+    ];
+    this.departments = [
+      { name: 'Fire Fighter', code: 'fire' },
+      { name: 'Medical', code: 'med' },
+      { name: 'Operations', code: 'ops' },
+      { name: 'Security', code: 'sec' },
+    ];
     this.userForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(3)]],
+      firstName: ['', Validators.required],
+      middleName: [''],
+      lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      // role: [null, Validators.required]
+      phone: [''],
+      rfidEnabled: [false],
+      rfidValue: [''],
+      profileImage: [null],
+      role: [null, Validators.required],
+      department: [null, Validators.required],
     });
   }
-
+  back() {
+    this.router.navigate(['dashboard']);
+  }
   submit() {
     if (this.userForm.invalid) {
+      console.log('coming here');
       this.userForm.markAllAsTouched();
       return;
     }
-
     this.userService.createUser(this.userForm.value).subscribe({
       next: () => {
         this.messageService.add({
@@ -59,10 +95,7 @@ export class UserForm {
           summary: 'Success',
           detail: 'User created successfully',
         });
-
-        setTimeout(() => {
-          this.router.navigate(['/dashboard']);
-        }, 800);
+        this.userForm.reset();
       },
       error: () => {
         this.messageService.add({
@@ -72,5 +105,21 @@ export class UserForm {
         });
       },
     });
+  }
+  onFileSelected(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      // 1. Update the preview for the user
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagePreview = reader.result as string;
+      };
+      reader.readAsDataURL(file);
+
+      // 2. Optional: Patch the file into your Reactive Form
+      this.userForm.patchValue({
+        profileImage: file,
+      });
+    }
   }
 }
