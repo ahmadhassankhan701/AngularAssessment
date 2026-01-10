@@ -38,6 +38,10 @@ export class DashboardLayoutComponent {
   addNewUser() {
     this.router.navigate(['/users/new']);
   }
+  goToRoute(route: string) {
+    this.router.navigate([route]);
+  }
+
   ngOnInit() {
     this.items = [
       {

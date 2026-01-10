@@ -15,6 +15,10 @@ export class DashboardTopBar {
   drawerVisible: boolean = false;
   constructor(private router: Router) {}
 
+  goToRoute(route: string) {
+    this.router.navigate([route]);
+  }
+
   addNewUser() {
     this.router.navigate(['/users/new']);
   }

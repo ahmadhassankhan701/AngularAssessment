@@ -1,1 +1,105 @@
-<p>user-list works!</p>
+<div class="table-container p-3">
+  <div class="flex justify-content-between align-items-center mb-3 text-gray-400">
+    <div class="flex flex-column">
+      <span class="font-bold fs-14 text-sm text-white">Users</span>
+      <span class="text-xs">Find all users here</span>
+    </div>
+    <div class="flex gap-2 white-space-nowrap">
+      <p-button
+        label="Add User"
+        icon="pi pi-plus"
+        styleClass="action-btn p-button-outlined"
+        (click)="goToRoute('/users/new')"
+      ></p-button>
+    </div>
+  </div>
+
+  <p-table
+    [value]="(users$ | async) || []"
+    styleClass="p-datatable-custom"
+    [rows]="10"
+    [resizableColumns]="true"
+    columnResizeMode="expand"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>
+          <div class="flex align-items-center">
+            <i class="pi pi-bars mr-2 text-xs opacity-50"></i>
+            User ID <i class="pi pi-arrow-down ml-2 text-xs"></i>
+          </div>
+        </th>
+        <th>
+          <div class="flex align-items-center">
+            <i class="pi pi-bars mr-2 text-xs opacity-50"></i>
+            Name <i class="pi pi-arrow-down ml-2 text-xs"></i>
+          </div>
+        </th>
+        <th>
+          <div class="flex align-items-center">
+            <i class="pi pi-bars mr-2 text-xs opacity-50"></i>
+            Email
+          </div>
+        </th>
+        <th>
+          <div class="flex align-items-center">
+            <i class="pi pi-bars mr-2 text-xs opacity-50"></i>
+            Phone
+          </div>
+        </th>
+        <th>
+          <div class="flex align-items-center">
+            <i class="pi pi-bars mr-2 text-xs opacity-50"></i>
+            RFID Enabled & Value
+          </div>
+        </th>
+        <th>
+          <div class="flex align-items-center">
+            <i class="pi pi-bars mr-2 text-xs opacity-50"></i>
+            Role
+          </div>
+        </th>
+        <th>
+          <div class="flex align-items-center">
+            <i class="pi pi-bars mr-2 text-xs opacity-50"></i>
+            Department
+          </div>
+        </th>
+        <th style="width: 3rem">
+          <div class="column-toggle-btn">
+            <i class="pi pi-sliders-h"></i>
+          </div>
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+      <tr>
+        <td>
+          <div class="flex align-items-center gap-2">
+            <span class="type-badge">{{ user.id }}</span>
+          </div>
+        </td>
+        <td>{{ user.firstName + ' ' + user.middleName + ' ' + user.lastName }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td>
+          <div class="flex flex-column">
+            <span class="text-sm">{{ user.rfidEnabled ? 'Enabled' : 'Disabled' }}</span>
+            <span class="text-xs font-bold">{{ user.rfidValue }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="flex flex-column">
+            <span class="text-xs">{{ user.role }}</span>
+          </div>
+        </td>
+        <td>
+          <div class="flex flex-column">
+            <span class="text-xs font-bold">{{ user.department }}</span>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

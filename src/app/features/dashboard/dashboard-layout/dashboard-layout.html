@@ -3,7 +3,12 @@
     @if (isDrawerExpanded) {
     <div class="full-menu">
       <div class="sidebar-header">
-        <img src="/white-logo.png" alt="Ideal Solutions" class="logo" />
+        <img
+          src="/white-logo.png"
+          alt="Ideal Solutions"
+          class="logo"
+          (click)="goToRoute('/dashboard')"
+        />
         <div class="menu-toggle">
           <i class="pi pi-list" (click)="isDrawerExpanded = false"></i>
         </div>
@@ -11,7 +16,7 @@
 
       <div class="sidebar-content">
         <ul class="nav-list">
-          <li class="nav-item active">
+          <li class="nav-item active" (click)="goToRoute('/dashboard')">
             <div class="nav-link">
               <i class="pi pi-th-large icon-bg"></i>
               <span>Dashboard</span>
@@ -39,8 +44,10 @@
             <ul class="sub-menu">
               <li class="sub-item">
                 <div class="nav-link">
-                  <i class="pi pi-users icon-outline"></i>
-                  <span>Users</span>
+                  <div (click)="goToRoute('/users')" class="flex gap-3 align-items-center">
+                    <i class="pi pi-users icon-outline"></i>
+                    <span>Users</span>
+                  </div>
                   <div class="plus-container" (click)="addNewUser()">
                     <i class="pi pi-plus" style="color: #ffffff"></i>
                   </div>
@@ -71,7 +78,7 @@
 
       <div class="sidebar-content">
         <ul class="nav-list">
-          <li class="nav-item active">
+          <li class="nav-item active" (click)="goToRoute('/dashboard')">
             <div class="nav-link">
               <i class="pi pi-th-large icon-bg"></i>
               <span>Dashboard</span>
@@ -106,8 +113,10 @@
 
                   <li class="sub-item">
                     <div class="sub-link">
-                      <i class="pi pi-users"></i>
-                      <span>Users</span>
+                      <div (click)="goToRoute('/users')" class="flex gap-3 align-items-center">
+                        <i class="pi pi-users"></i>
+                        <span>Users</span>
+                      </div>
                       <div class="plus-btn" (click)="addNewUser()">
                         <i class="pi pi-plus" style="color: #ffffff"></i>
                       </div>

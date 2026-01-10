@@ -20,4 +20,8 @@ export class UserService {
   getShifts(): Observable<Shift[]> {
     return this.http.get<Shift[]>(this.SHIFT_API_URL);
   }
+
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.API_URL);
+  }
 }

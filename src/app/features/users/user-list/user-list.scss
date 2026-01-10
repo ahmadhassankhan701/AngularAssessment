@@ -1,0 +1,79 @@
+$cyan: #00c5d6;
+
+.p-datatable-custom {
+  ::ng-deep {
+    .p-datatable-thead > tr > th {
+      background: rgba(31, 29, 43, 1);
+      color: #cecbde;
+      border: none;
+      border-bottom: 2px solid rgba(70, 67, 83, 1) !important;
+      font-size: 0.85rem;
+      padding: 0.5rem;
+      text-transform: none;
+      white-space: nowrap;
+    }
+
+    .p-datatable-tbody > tr {
+      background: transparent;
+      color: #cecbde;
+      transition: background 0.2s;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.03) !important;
+      }
+
+      > td {
+        border: none;
+        border-bottom: 2px solid rgba(70, 67, 83, 1);
+        padding: 1rem;
+      }
+    }
+  }
+}
+
+.type-badge {
+  border: 1px solid #464353;
+  color: #8b949e;
+  font-size: 0.65rem;
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+
+.vehicle-link {
+  color: #cecbde;
+  text-decoration: underline;
+  font-weight: 500;
+  &:hover {
+    color: red;
+  }
+}
+
+.column-toggle-btn {
+  background: #252836;
+  border: 1px solid #464353;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cecbde;
+}
+
+::ng-deep .action-btn {
+  height: 45px;
+  background: #252836 !important;
+  border: 1px solid #252836 !important;
+  border-radius: 12px !important;
+  color: #cecbde !important;
+  // box-shadow: rgba(2, 0, 23, 0.6) 0px 10px 5px -3px;
+  box-shadow: 0 0.5px 0.5px 0.5px rgba(2, 0, 23, 0.6);
+
+  // Prevents text from wrapping if the search bar grows too much
+  white-space: nowrap;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: $cyan !important;
+  }
+}

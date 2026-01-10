@@ -80,7 +80,7 @@ export class UserForm implements OnInit {
     });
   }
   back() {
-    this.router.navigate(['dashboard']);
+    this.router.navigate(['users']);
   }
   submit() {
     if (this.userForm.invalid) {
@@ -96,6 +96,7 @@ export class UserForm implements OnInit {
           detail: 'User created successfully',
         });
         this.userForm.reset();
+        this.router.navigate(['users']);
       },
       error: () => {
         this.messageService.add({
